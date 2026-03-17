@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Redirecting… — Ovolutio Finance</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #f9fafb;
+      color: #111827;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 2.5rem 3rem;
+      text-align: center;
+      max-width: 420px;
+      width: 100%;
+    }
+    .spinner {
+      width: 40px; height: 40px;
+      border: 3px solid #e5e7eb;
+      border-top-color: #2563eb;
+      border-radius: 50%;
+      animation: spin .8s linear infinite;
+      margin: 0 auto 1.5rem;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    h1 { font-size: 1.1rem; font-weight: 600; margin-bottom: .5rem; }
+    p  { font-size: .875rem; color: #6b7280; line-height: 1.6; }
+    .error {
+      display: none;
+      margin-top: 1.25rem;
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      border-radius: 8px;
+      padding: 1rem;
+      font-size: .85rem;
+      color: #b91c1c;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="spinner"></div>
+    <h1>Redirecting to your app…</h1>
+    <p>Authorization complete. Sending you back to Ovolutio Finance.</p>
+    <div class="error" id="error"></div>
+  </div>
+
+  <script>
+    (function () {
+      // Local app URL — change port if needed
+      var LOCAL_APP = 'http://localhost:5173/bank-accounts/enable-banking/callback';
+
+      var params = window.location.search; // e.g. ?code=XXX&state=YYY
+
+      if (!params) {
+        showError('No authorization parameters found in the callback URL.');
+        return;
+      }
+
+      var target = LOCAL_APP + params;
+
+      // Redirect immediately
+      window.location.replace(target);
+
+      // Fallback: if redirect hasn't happened after 2s, show manual link
+      setTimeout(function () {
+        document.querySelector('h1').textContent = 'Click below if not redirected';
+        document.querySelector('p').innerHTML =
+          '<a href="' + target + '" style="color:#2563eb">Open Ovolutio Finance</a>';
+        document.querySelector('.spinner').style.display = 'none';
+      }, 2000);
+    })();
+
+    function showError(msg) {
+      document.querySelector('.spinner').style.display = 'none';
+      document.querySelector('h1').textContent = 'Callback error';
+      document.querySelector('p').textContent = 'Could not complete authorization.';
+      var el = document.getElementById('error');
+      el.style.display = 'block';
+      el.textContent = msg;
+    }
+  </script>
+</body>
+</html>
