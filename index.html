@@ -5,45 +5,208 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ovolutio Tech</title>
   <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       background: #f9fafb;
       color: #111827;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── Header ── */
+    header {
+      background: #fff;
+      border-bottom: 1px solid #e5e7eb;
+      padding: 1rem 2rem;
       display: flex;
       align-items: center;
+      gap: .75rem;
+    }
+    header .logo {
+      width: 32px; height: 32px;
+      background: #2563eb;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-weight: 800; font-size: 1rem;
+    }
+    header h1 { font-size: 1.1rem; font-weight: 700; letter-spacing: -.01em; }
+    header span { font-size: .8rem; color: #6b7280; margin-left: .25rem; }
+
+    /* ── Hero ── */
+    .hero {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       justify-content: center;
-      min-height: 100vh;
-      margin: 0;
+      padding: 4rem 1.5rem 2rem;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+      border-radius: 999px;
+      padding: .3rem .9rem;
+      font-size: .78rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+    .hero-badge::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: #2563eb;
+      border-radius: 50%;
+    }
+    .hero h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -.03em;
+      line-height: 1.15;
+      margin-bottom: .75rem;
+      max-width: 560px;
+    }
+    .hero h2 span { color: #2563eb; }
+    .hero p {
+      font-size: 1rem;
+      color: #6b7280;
+      max-width: 440px;
+      line-height: 1.65;
+      margin-bottom: 2.5rem;
+    }
+
+    /* ── Cards ── */
+    .cards {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 3rem;
     }
     .card {
       background: #fff;
+      border: 1px solid #e5e7eb;
       border-radius: 12px;
-      padding: 2.5rem 3rem;
-      box-shadow: 0 1px 4px rgba(0,0,0,.08);
-      text-align: center;
-      max-width: 400px;
+      padding: 1.5rem;
+      width: 200px;
+      text-align: left;
+      text-decoration: none;
+      color: inherit;
+      transition: box-shadow .15s, border-color .15s, transform .15s;
     }
-    h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: .5rem; }
-    p { color: #6b7280; font-size: .9rem; margin-bottom: 1.5rem; }
-    a {
-      display: inline-block;
-      background: #2563eb;
+    .card:hover {
+      box-shadow: 0 4px 16px rgba(0,0,0,.08);
+      border-color: #2563eb;
+      transform: translateY(-2px);
+    }
+    .card-icon {
+      width: 36px; height: 36px;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+      margin-bottom: .75rem;
+    }
+    .card-icon.blue  { background: #eff6ff; }
+    .card-icon.green { background: #f0fdf4; }
+    .card h3 { font-size: .9rem; font-weight: 600; margin-bottom: .25rem; }
+    .card p  { font-size: .8rem; color: #6b7280; margin: 0; line-height: 1.5; }
+
+    /* ── GitHub link ── */
+    .github-link {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: #111827;
       color: #fff;
       border-radius: 8px;
-      padding: .6rem 1.25rem;
+      padding: .65rem 1.4rem;
       font-size: .9rem;
-      text-decoration: none;
       font-weight: 500;
+      text-decoration: none;
+      transition: background .15s;
     }
-    a:hover { background: #1d4ed8; }
+    .github-link:hover { background: #374151; }
+    .github-link svg { width: 18px; height: 18px; fill: #fff; }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid #e5e7eb;
+      padding: 1.25rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: .75rem;
+      font-size: .8rem;
+      color: #9ca3af;
+    }
+    footer a { color: #6b7280; text-decoration: none; }
+    footer a:hover { color: #111827; }
+    .footer-links { display: flex; gap: 1.25rem; }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>Ovolutio Tech</h1>
-    <p>Personal projects &amp; tools.</p>
-    <a href="/privacy.html" style="margin-right:.5rem">Privacy Policy</a>
-    <a href="/terms.html">Terms of Use</a>
-  </div>
+
+  <header>
+    <div class="logo">O</div>
+    <h1>Ovolutio Tech <span>/ personal</span></h1>
+  </header>
+
+  <main class="hero">
+    <div class="hero-badge">Personal projects &amp; tools</div>
+    <h2>Built for <span>personal</span><br>finance management</h2>
+    <p>
+      Self-hosted tools to manage bank accounts, track transactions,
+      and analyse budgets — powered by Open Banking.
+    </p>
+
+    <div class="cards">
+      <a class="card" href="/privacy.html">
+        <div class="card-icon green">🔒</div>
+        <h3>Privacy Policy</h3>
+        <p>How your data is collected, stored and protected.</p>
+      </a>
+      <a class="card" href="/terms.html">
+        <div class="card-icon blue">📄</div>
+        <h3>Terms of Use</h3>
+        <p>Conditions governing the use of this application.</p>
+      </a>
+    </div>
+
+    <a class="github-link" href="https://github.com/ovolutio-tech" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303
+          3.438 9.8 8.205 11.385.6.113.82-.258.82-.577
+          0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61
+          C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729
+          1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305
+          3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93
+          0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176
+          0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405
+          1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23
+          3.285-1.23.645 1.653.24 2.873.12 3.176.765.84
+          1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475
+          5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015
+          3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592
+          24 12.297c0-6.627-5.373-12-12-12"/>
+      </svg>
+      View on GitHub
+    </a>
+  </main>
+
+  <footer>
+    <span>&copy; 2026 Ovolutio Tech &mdash; Personal use only</span>
+    <div class="footer-links">
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Use</a>
+      <a href="https://github.com/ovolutio-tech" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </footer>
+
 </body>
 </html>
