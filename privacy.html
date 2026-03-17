@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Ovolutio Finance</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #f9fafb;
+      color: #111827;
+      padding: 2rem 1rem;
+    }
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 12px;
+      padding: 2.5rem 3rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,.08);
+    }
+    h1 { font-size: 1.75rem; font-weight: 700; margin-bottom: .25rem; }
+    .meta { font-size: .875rem; color: #6b7280; margin-bottom: 2rem; }
+    h2 { font-size: 1.1rem; font-weight: 600; margin: 1.75rem 0 .5rem; color: #374151; }
+    p, li { font-size: .95rem; line-height: 1.7; color: #4b5563; }
+    ul { padding-left: 1.5rem; margin-top: .5rem; }
+    li { margin-bottom: .35rem; }
+    a { color: #2563eb; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .badge {
+      display: inline-block;
+      background: #ecfdf5;
+      color: #065f46;
+      border: 1px solid #a7f3d0;
+      border-radius: 6px;
+      padding: .25rem .75rem;
+      font-size: .8rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+    footer { margin-top: 2.5rem; padding-top: 1.25rem; border-top: 1px solid #e5e7eb; font-size: .8rem; color: #9ca3af; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Privacy Policy</h1>
+    <p class="meta">Ovolutio Finance &mdash; Last updated: March 2026</p>
+    <span class="badge">Personal use only</span>
+
+    <h2>1. Overview</h2>
+    <p>
+      Ovolutio Finance is a <strong>personal finance management application</strong>
+      developed and used exclusively by its owner for private purposes.
+      It is not a commercial product and is not offered to the public.
+    </p>
+
+    <h2>2. Data Collection</h2>
+    <p>This application collects only the data you explicitly enter:</p>
+    <ul>
+      <li>Bank account information (account name, IBAN, balance)</li>
+      <li>Financial transactions (amount, date, description, category)</li>
+      <li>Authentication credentials (email address, hashed password)</li>
+    </ul>
+    <p>No data is collected automatically, and no analytics or tracking tools are used.</p>
+
+    <h2>3. Open Banking (Enable Banking)</h2>
+    <p>
+      When you use the Enable Banking integration, this application connects to the
+      <a href="https://enablebanking.com" target="_blank" rel="noopener">Enable Banking API</a>
+      to retrieve your bank account data and transactions.
+      This connection is initiated explicitly by you and requires your consent at your bank.
+    </p>
+    <ul>
+      <li>No banking credentials are stored by this application</li>
+      <li>Access tokens are used only during the import session</li>
+      <li>Data retrieved is stored locally in your personal database instance</li>
+    </ul>
+
+    <h2>4. Data Storage</h2>
+    <p>
+      All data is stored in a <strong>local PostgreSQL database</strong> running on your
+      own infrastructure (Docker container). No data is sent to any remote server
+      other than the Enable Banking API during the import process.
+    </p>
+
+    <h2>5. Data Sharing</h2>
+    <p>
+      <strong>No data is shared with any third party.</strong>
+      This application is self-hosted and used exclusively by its owner.
+    </p>
+
+    <h2>6. Data Retention</h2>
+    <p>
+      Data is retained as long as you choose to keep it. You can delete your account
+      and all associated data at any time from the application settings.
+    </p>
+
+    <h2>7. Your Rights (GDPR)</h2>
+    <p>As the sole user and data controller, you have full control over your data, including:</p>
+    <ul>
+      <li>Right of access — you can view all your data in the application</li>
+      <li>Right to rectification — you can edit any data at any time</li>
+      <li>Right to erasure — you can delete your account and all data</li>
+      <li>Right to portability — data can be exported via the database</li>
+    </ul>
+
+    <h2>8. Contact</h2>
+    <p>
+      For any questions regarding this privacy policy, please contact:
+      <a href="https://github.com/ovolutio-tech">github.com/ovolutio-tech</a>
+    </p>
+
+    <footer>
+      &copy; 2026 Ovolutio Finance &mdash; Personal use only &mdash;
+      <a href="https://github.com/ovolutio-tech">ovolutio-tech</a>
+    </footer>
+  </div>
+</body>
+</html>
